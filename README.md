@@ -6,7 +6,7 @@
 > 
 ## ToDo
 
-- [ ] uzupełniony HTML
+- [x] uzupełniony HTML
 - [ ] przygotowane breakpointy
 - [ ] widok responsywny (mobile)
 - [ ] widok responsywny (tablet)
