@@ -5,13 +5,22 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
-<header>
-    <img src="assets/img/logo_white.svg" alt="Logo DanMakesStuff">
-    <nav>
-        <ul>
+<header class="header">
+    <img src="assets/img/logo_white.svg" alt="Logo DanMakesStuff" class="logo-main">
+    <button type="button" class="hamburger-menu-button">
+        <span class="hamburger-dash"></span>
+    </button>
+    <nav class="nav">
+        <ul class="nav-main">
             <li>Home</li>
             <li>Kim jestem?</li>
             <li>O firmie</li>
@@ -32,7 +41,7 @@
     <div class="table-header"></div>
 </div>
 <section>
-    <h2>KTO ZA TYM WSZYSTKIM STOI?</h2>
+    <h2  class="section-title">KTO ZA TYM WSZYSTKIM STOI?</h2>
     <p>
         Cześć! nazywam się Daniel otfinowski. jestem młodym człowiekiem, który wchodzi w dorosłość z pasją, chcąc uszczęśliwiać jak największą grupę ludzi swoimi projektami. Moja przygoda z rzemiosłem narodziła się gdy miałem 12 lat , wtedy zacząłem tworzyć swoje pierwsze projekty z drewna oraz metalu. Na początku nie wychodziło mi to najlepiej, ale z czasem zauważyłem, że coraz więcej osób z mojej rodziny zaczyna się interesować w tym, co robię i prosić mnie o stworzenie prostych projektów dla swoich znajomych. Wtedy jeszcze nie sądziłem, że to chwilowe zainteresowanie przerodzi się w tak silną pasję, która stanie się częścią mojego życia. Od zawsze interesowałem się naturą i czerpałem z niej inspiracje. Moi znajomi często dziwili się, kiedy patrząc na kawałek drewna mówiłem, że to prawdziwe dzieło sztuki, dla nich to była tylko zwykła Kłoda drewna. Aktualnie Staram się, jak najlepiej potrafię poświęcać czas temu, co robię. Każdy produkt, który wykonuję, jest dla mnie czymś wyjątkowym, a radość ludzi, dla których mam przyjemność tworzyć, napędza mnie do rozwijania swojej pasji.
     </p>
@@ -46,7 +55,7 @@
     </div>
 </section>
 <section>
-    <h2>Co nas wyróżnia</h2>
+    <h2 class="section-title align-right">Co nas wyróżnia</h2>
     <div>
         <div>
             <div>Zdj1</div>
@@ -107,7 +116,7 @@
     </p>
 </section>
 <section>
-    <h2>Dlaczego wybór stołu jest taki ważny?</h2>
+    <h2 class="section-title">Dlaczego wybór stołu jest taki ważny?</h2>
     <div>
         <div>Zdj1</div>
         <p></p>
@@ -121,7 +130,7 @@
     </div>
 </section>
 <section>
-    <h2>Kolekcje</h2>
+    <h2 class="section-title align-right">Kolekcje</h2>
     <div>
         <div>Zdj1</div>
         <h4>Kolekcja salonowa</h4>
@@ -139,7 +148,7 @@
     </p>
 </section>
 <section>
-    <h2>Galeria</h2>
+    <h2 class="section-title">Galeria</h2>
     <div>Zdj1</div>
     <div>Zdj2</div>
     <div>Zdj3</div>
@@ -148,7 +157,7 @@
     <div>Zdj6</div>
 </section>
 <section>
-    <h2>FAQ</h2>
+    <h2 class="section-title align-right">FAQ</h2>
     <div>
         <div>
             <h4>Jak długo trwa realizacja projektu?</h4>
