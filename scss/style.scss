@@ -38,6 +38,12 @@ body {
   overflow-x: hidden;
 }
 
+p {
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
 .header {
   position: relative;
   display: flex;
@@ -138,8 +144,8 @@ body {
   width: 75%;
   padding: 8px;
   text-align: right;
-  border: 2px solid $mainBlue;
-  box-shadow: 0 0 10px 1px $mainBlue;
+  border: 1px solid $mainBlue;
+  box-shadow: 0 0 5px 1px $mainBlue;
   margin: 25px auto 25px -3px;
   &.align-right {
     margin: 25px -3px 25px auto;
@@ -147,35 +153,54 @@ body {
   }
 }
 
-.table-header-pic {
-  width: 75%;
-  min-height: 200px;
+.img {
   background-color: black;
-  margin: 25px -3px 50px auto;
-  border: 2px solid $mainBlue;
-  box-shadow: 0 0 5px 5px $mainBlue;
+  box-shadow: 0 0 2px 2px $mainBlue;
+  border: 1px solid $mainBlue;
 }
 
-.picture {
-  width: 60%;
-  min-height: 300px;
-  background-color: black;
-  margin: 25px auto 25px auto;
-  box-shadow: 0 0 1.95px 1.95px $mainBlue;
-  &.square-photo {
-    width: 80%;
-    min-height: 250px;
+.main {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-top: 30px;
+  .main-text {
+    text-align: center;
+    margin: 25px 0;
+    width: 90%;
+  }
+  .main-img {
+    align-self: flex-end;
+    width: 300px;
+    height: 250px;
+    margin-right: -2px;
   }
 }
 
-.inset {
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  .about-img {
+    width: 300px;
+    height: 400px;
+  }
+  .about-text {
+    margin: 25px 0;
+    text-align: center;
+    width: 90%;
+  }
+}
+
+.banner-stripe {
   width: 100%;
   padding: 20px;
+  margin: 20px 0;
   background-color: $mainBlue25;
   display:flex;
   align-items: center;
   justify-content: center;
-  margin: 25px 0 25px 0;
   position: relative;
   &:before {
     position: absolute;
@@ -183,7 +208,7 @@ body {
     width: 100%;
     height: 1px;
     background: linear-gradient(90deg, rgba(57, 136, 255, 0.25) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 0.25) 100%);
-    top:0;
+    top: 0;
   }
   &:after {
     position: absolute;
@@ -191,17 +216,17 @@ body {
     width: 100%;
     height: 1px;
     background: linear-gradient(90deg, rgba(57, 136, 255, 0.25) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 0.25) 100%);
-    bottom:0;
+    bottom: 0;
   }
-  h2 {
+  .banner-stripe-heading {
     font-size: 30px;
     font-weight: 600;
     text-align: center;
-    margin-right:10px;
   }
-  p {
-    font-size: 9px;
+  .banner-stripe-text {
+    font-size: 11px;
     line-height: 15px;
+    margin-left: 15px;
   }
 }
 
@@ -225,10 +250,100 @@ body {
 }
 
 .hexagon {
+  margin : 10px auto;
   width: 280px;
   height: 300px;
   background-color: black;
-  box-shadow: 0 0 25px 10px rgba(57, 136, 255, 1);
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 }
 
+.hexagon-wrapper {
+  filter: drop-shadow(0 0 5px rgba(57, 136, 255, 1))
+    drop-shadow(0 0 8px rgba(57, 136, 255, 1));
+
+}
+
+.highlights-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  .highlights-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .highlights-subtitle {
+      font-size: 16px;
+      font-weight: bold;
+      color: $mainBlue;
+      margin: 20px auto 0 auto;
+    }
+
+    .dot-divider {
+      width: 80%;
+      height: 2px;
+      background: $mainBlue;
+      background: linear-gradient(to left, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 100%);
+      margin: 30px 0;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $mainBlue;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
+      }
+    }
+
+    &.highlights-element-right {
+      .dot-divider {
+        background: linear-gradient(to right, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 100%);
+
+        &::after {
+          content: "";
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: $mainBlue;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    .highlights-text {
+      font-size: 12px;
+      text-align: center;
+    }
+
+  }
+}
+  .highlights-summary {
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
