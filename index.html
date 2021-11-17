@@ -16,10 +16,15 @@
 <body>
 <header class="header">
     <img src="assets/img/logo_white.svg" alt="Logo DanMakesStuff" class="logo-main">
-    <button type="button" class="hamburger-menu-button">
+    <button
+        type="button"
+        class="hamburger-menu-button"
+        id="hamburger-menu-button"
+        onClick="toggleMenu()"
+    >
         <span class="hamburger-dash"></span>
     </button>
-    <nav class="nav">
+    <nav class="nav" id="nav">
         <ul class="nav-main">
             <li>Home</li>
             <li>Kim jestem?</li>
@@ -33,7 +38,7 @@
 <section class="main">
     <p class="main-text">
         Tworzymy unikatowe stoły bazujące na drewnie, żywicy epoksydowej i metalu.
-        Głównym założeniem naszej manufaktury jest tworzenie prawdziwych dzieł sztuki pełniących rolę użytkową.
+        Głównym założeniem naszej manufaktury jest tworzenie prawdziwych dzieł sztuki pełniących funkcję użytkową.
         Najbardziej fascynują nas
         projekty przekraczające granicę wyobraźni i jak może się niektórym wydawać- możliwości.
         Stwórzmy razem stół na miarę XXI wieku.
@@ -44,7 +49,7 @@
     <h2 class="section-title">KTO ZA TYM WSZYSTKIM STOI?</h2>
     <div class="about-img img"></div>
     <p class="about-text">
-        Cześć! nazywam się Daniel Otfinowski. Jestem młodym człowiekiem, który wchodzi w dorosłość z pasją, chcąc uszczęśliwiać jak największą grupę ludzi swoimi projektami. Moja przygoda z rzemiosłem narodziła się gdy miałem 12 lat , wtedy zacząłem tworzyć swoje pierwsze projekty z drewna oraz metalu. Na początku nie wychodziło mi to najlepiej, ale z czasem zauważyłem, że coraz więcej osób z mojej rodziny zaczyna się interesować w tym, co robię i prosić mnie o stworzenie prostych projektów dla swoich znajomych. Wtedy jeszcze nie sądziłem, że to chwilowe zainteresowanie przerodzi się w tak silną pasję, która stanie się częścią mojego życia. Od zawsze interesowałem się naturą i czerpałem z niej inspiracje. Moi znajomi często dziwili się, kiedy patrząc na kawałek drewna mówiłem, że to prawdziwe dzieło sztuki, dla nich to była tylko zwykła Kłoda drewna. Aktualnie Staram się, jak najlepiej potrafię poświęcać czas temu, co robię. Każdy produkt, który wykonuję, jest dla mnie czymś wyjątkowym, a radość ludzi, dla których mam przyjemność tworzyć, napędza mnie do rozwijania swojej pasji.
+        Cześć! Nazywam się Daniel Otfinowski. Jestem młodym człowiekiem, który wchodzi w dorosłość z pasją, chcąc uszczęśliwiać jak największą grupę ludzi swoimi projektami. Moja przygoda z rzemiosłem narodziła się gdy miałem 12 lat , wtedy zacząłem tworzyć swoje pierwsze projekty z drewna oraz metalu. Na początku nie wychodziło mi to najlepiej, ale z czasem zauważyłem, że coraz więcej osób z mojej rodziny zaczyna się interesować w tym, co robię i prosić mnie o stworzenie prostych projektów dla swoich znajomych. Wtedy jeszcze nie sądziłem, że to chwilowe zainteresowanie przerodzi się w tak silną pasję, która stanie się częścią mojego życia. Od zawsze interesowałem się naturą i czerpałem z niej inspiracje. Moi znajomi często dziwili się, kiedy patrząc na kawałek drewna mówiłem, że to prawdziwe dzieło sztuki, dla nich to była tylko zwykła Kłoda drewna. Aktualnie Staram się, jak najlepiej potrafię poświęcać czas temu, co robię. Każdy produkt, który wykonuję, jest dla mnie czymś wyjątkowym, a radość ludzi, dla których mam przyjemność tworzyć, napędza mnie do rozwijania swojej pasji.
     </p>
     <div class="banner-stripe">
         <h2 class="banner-stripe-heading">GŁÓWNA WIZJA</h2>
@@ -79,7 +84,7 @@
             <p class="highlights-text">
                 Możemy spersonalizować projekt pod klienta na podstawie wiadomości o jego zachowaniach,
                 bądź po prostu analizując informacje na jego temat.
-                Przykładowo: w jakich miejscach lubi przebywać, Jaki ma charakter ,
+                Przykładowo: w jakich miejscach lubi przebywać, Jaki ma charakter,
                 czy jakie kolory najlepiej na niego wpływają.
                 Z każdego elementu da się coś wywnioskować i stworzyć spersonalizowany projekt.
             </p>
@@ -102,8 +107,8 @@
             <h4 class="highlights-subtitle">Wyobraźnia przestrzenna</h4>
             <span class="dot-divider"></span>
             <p class="highlights-text">
-                Ważną umiejętnością którą pozwala nam lepiej tworzyć projekty , jest wyobraźnia przestrzenna.
-                Wizualizujemy projekt w głowach zanim finalnie go stworzymy i wyjdzie z naszej pracowni.
+                Ważną umiejętnością, którą pozwala nam lepiej tworzyć projekty, jest wyobraźnia przestrzenna.
+                Wizualizujemy projekt w głowach, zanim finalnie go stworzymy i wyjdzie z naszej pracowni.
             </p>
         </div>
         <div class="highlights-element highlights-element-right">
@@ -118,84 +123,83 @@
             </p>
         </div>
     </div>
-    <p class="highlights-summary">
+    <p class="summary">
         Efekt końcowy jest w twoich rękach! Możesz dostosować każdy aspekt projektu-kształt, kolor, gatunek drewna,
-        wymiar oraz wiele innych do swoich własnych potrzeb. Możliwości jest naprawdę mnóstwo
-        jeśli nie będziesz mógł, mogła zdecydować czego potrzebujesz,
-        bez obaw... z chęcią pomożemy dostosować projekt tak aby spełniał wszystkie twoje oczekiwania!
+        wymiar oraz wiele innych do swoich własnych potrzeb. Możliwości jest naprawdę mnóstwo, jeśli nie będziesz mógł/mogła zdecydować, czego potrzebujesz,
+        bez obaw... z chęcią pomożemy dostosować projekt tak, aby spełniał wszystkie twoje oczekiwania!
     </p>
 </section>
-<section>
+<section class="tablechoice">
     <h2 class="section-title">Dlaczego wybór stołu jest taki ważny?</h2>
-    <div>
-        <div class="picture square-photo">Zdj1</div>
-        <p>
-            W każdym domu Stół jest centralnym punktem. To przy nim odbywają się niedzielne obiady, weekendowe spotkania z przyjaciółmi a także celebracja rodzinnych uroczystości. Dan Makes Stuff pomoże ci wznieść te aspekty na wyższy poziom. W twoim stole mogą się znaleźć interaktywne elementy takie jak ekrany , indukcyjne ładowarki , animacje świetlne czy sloty USB
-        </p>
-    </div>
-    <div class="inset">
-        <h2>PRECYZJA</h2>
-        <p>
+    <div class="img tablechoice-img">Zdj1</div>
+    <p class="tablechoice-text">
+        W każdym domu Stół jest centralnym punktem. To przy nim odbywają się niedzielne obiady, weekendowe spotkania z przyjaciółmi, a także celebracja rodzinnych uroczystości. <strong>Dan Makes Stuff</strong> pomoże ci wznieść te aspekty na wyższy poziom. W twoim stole mogą się znaleźć interaktywne elementy takie jak ekrany, indukcyjne ładowarki, animacje świetlne czy sloty USB.
+    </p>
+    <div class="banner-stripe">
+        <h2 class="banner-stripe-heading">PRECYZJA</h2>
+        <p class="banner-stripe-text">
             Dokładność wykonania możecie dostrzec w każdym projekcie,
             ponieważ cenimy sobie dbałość o szczegóły
         </p>
     </div>
 </section>
-<section>
+<section class="collections">
     <h2 class="section-title align-right">Kolekcje</h2>
-    <div>
-        <h4>Kolekcja salonowa</h4>
-        <span></span>
-        <div class="picture square-photo">Zdj1</div>
-        <p>Nasze stoły z kolekcji salonowej , pachną świeżą kawą o poranku i aromatycznym drzewem z polskich lasów. Mimo prostoty w każdym zatopiona jest historia wieloletnich drzew, która będzie z wami na długie dekady. Chcemy żeby w waszym życiu zagościł ekskluzywny minimalizm.</p>
+    <div class="collections-collection">
+        <h4 class="collections-subtitle">Kolekcja salonowa</h4>
+        <span class="dot-divider"></span>
+        <div class="img collection-img">Zdj1</div>
+        <p class="collection-description">Nasze stoły z kolekcji salonowej, pachną świeżą kawą o poranku i aromatycznym drzewem z polskich lasów. Mimo prostoty w każdym zatopiona jest historia wieloletnich drzew, która będzie z wami na długie dekady. Chcemy, żeby w waszym życiu zagościł ekskluzywny minimalizm.</p>
     </div>
-    <div>
-        <h4>Kolekcja premium</h4>
-        <span></span>
-        <div class="picture square-photo">Zdj2</div>
-        <p>Żywica daje nam możliwość zatapiania w niej wszystkiego o czym tylko pomyślimy. Dzięki temu możemy stworzyć stół, który z pewnością będzie odbiegał swoim wyglądem od innych. Wykorzystanie sprawnych umysłów sprawia, że jesteśmy w stanie stworzyć stół, który przekracza granice wyobraźni!</p>
+    <div class="collections-collection collections-collection-right">
+        <h4 class="collections-subtitle">Kolekcja premium</h4>
+        <span class="dot-divider"></span>
+        <div class="img collection-img">Zdj2</div>
+        <p class="collection-description">Żywica daje nam możliwość zatapiania w niej wszystkiego o czym tylko pomyślimy. Dzięki temu możemy stworzyć stół, który z pewnością będzie odbiegał swoim wyglądem od innych. Wykorzystanie sprawnych umysłów sprawia, że jesteśmy w stanie stworzyć stół, który przekracza granice wyobraźni!</p>
     </div>
-    <p>
+    <p class="summary">
         Przelanie wielkiej kreatywności w materię o wyjątkowym charakterze!
     </p>
 </section>
-<section>
+<section class="gallery">
     <h2 class="section-title">Galeria</h2>
-    <div class="gallery">
-        <div class="cel-1 gallery_picture">Zdj1</div>
-        <div class="cel-2 gallery_picture">Zdj2</div>
-        <div class="cel-3 gallery_picture">Zdj3</div>
-        <div class="cel-4 gallery_picture">Zdj4</div>
-        <div class="cel-5 gallery_picture">Zdj5</div>
+    <div class="gallery-content">
+        <div class="gallery-img">Zdj1</div>
+        <div class="gallery-img">Zdj2</div>
+        <div class="gallery-img">Zdj3</div>
+        <div class="gallery-img">Zdj4</div>
+        <div class="gallery-img">Zdj5</div>
     </div>
 </section>
-<section>
+<section class="faq">
     <h2 class="section-title align-right">FAQ</h2>
-    <div>
-        <div>
-            <h4>Jak długo trwa realizacja projektu?</h4>
-            <p>
+    <div class="faq-content">
+        <div class="faq-item">
+            <h4 class="faq-question">Jak długo trwa realizacja projektu?</h4>
+            <p class="faq-answer">
                 Długość realizacji jest zależna od poziomu skomplikowania projektu. Na produkty z serii salonowej poczekasz do 5 tygodni, a dzieła z serii Premium wymagają od 8 do 12 tygodni pracy.
             </p>
         </div>
-        <div>
-            <h4>Jak zamawiać?</h4>
-            <p>
-                Zapraszam do kontaktu przez moje social media. Zachęcam również do kontaktu telefonicznego.Po ustaleniu koncepcji na podstawie zdjęć i państwa upodobań, dokonamy wyceny i podamy dokładny czas oczekiwania. Po tym etapie należy wpłacić zaliczkę w wysokości 50% ceny finalnej , a przy odbiorze uregulujemy resztę kwoty.
+        <div class="faq-item">
+            <h4 class="faq-question">Jak zamawiać?</h4>
+            <p class="faq-answer">
+                Zapraszam do kontaktu przez moje social media. Zachęcam również do kontaktu telefonicznego. Po ustaleniu koncepcji na podstawie zdjęć i państwa upodobań dokonamy wyceny i podamy dokładny czas oczekiwania. Po tym etapie należy wpłacić zaliczkę w wysokości 50% ceny finalnej, a przy odbiorze uregulujemy resztę kwoty.
             </p>
         </div>
-        <div>
-            <h4>Co wpływa na cenę?</h4>
-            <p>
+        <div class="faq-item">
+            <h4 class="faq-question">Co wpływa na cenę?</h4>
+            <p class="faq-answer">
                 Głównym wyznacznikiem wpływającym na cenę jest rodzaj materiału i poziom skomplikowania.
             </p>
         </div>
     </div>
-    <div></div>
+    <div class="faq-decoration"></div>
 </section>
-<footer>
-    <h5>danmakesstuff.pl &copy; 2021</h5>
-    <p>by Marcin Wiatrak</p>
+<footer class="footer">
+    <h5 class="footer-copyrights">danmakesstuff.pl &copy; 2021</h5>
+    <p class="footer-by">by Marcin Wiatrak</p>
 </footer>
+
+<script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
