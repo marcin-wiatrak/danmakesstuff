@@ -1,7 +1,7 @@
 body {
   color: white;
-  background-size: contain;
-  background: url(../assets/img/bg.jpg);
+  background-size: 100% calc(20vh + 200px);
+  background: url(../assets/img/bg.jpg) no-repeat fixed center 0;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   overflow-x: hidden;
@@ -12,6 +12,11 @@ p {
   font-size: 11px;
   line-height: 1.5;
 }
+@media (min-width: 600px) {
+  p {
+    font-size: 16px;
+  }
+}
 
 .header {
   position: relative;
@@ -20,6 +25,9 @@ p {
   align-items: center;
   padding: 8px 16px;
   background-color: #3988FF;
+}
+.header .header-background {
+  display: none;
 }
 .header .nav {
   position: absolute;
@@ -30,6 +38,8 @@ p {
   top: 0;
   z-index: 100;
   transition: right 0.3s ease;
+  padding: 0;
+  margin: 0;
 }
 .header .nav.active {
   right: 0;
@@ -51,6 +61,7 @@ p {
   padding: 12px 0;
   text-align: center;
   position: relative;
+  text-transform: uppercase;
 }
 .header .nav .nav-main > li:not(:last-child)::after {
   content: "";
@@ -84,9 +95,11 @@ p {
   width: 100%;
   border-radius: 1px;
   background-color: white;
+  transition: all 0.3s ease;
 }
 .header .hamburger-menu-button .hamburger-dash::before {
   content: "";
+  opacity: 1;
   position: absolute;
   top: -5px;
   left: 0;
@@ -94,6 +107,7 @@ p {
   width: 100%;
   border-radius: 1px;
   background-color: white;
+  transition: all 0.3s ease;
 }
 .header .hamburger-menu-button .hamburger-dash::after {
   content: "";
@@ -104,22 +118,106 @@ p {
   width: 100%;
   border-radius: 1px;
   background-color: white;
+  transition: all 0.3s ease;
+}
+.header .hamburger-menu-button.active .hamburger-dash {
+  transform: rotate(-45deg) translate(-1px, -1px);
+}
+.header .hamburger-menu-button.active .hamburger-dash::before {
+  opacity: 0;
+  transform: rotate(45deg) translateX(20px);
+}
+.header .hamburger-menu-button.active .hamburger-dash::after {
+  transform: rotate(90deg) translate(-4px, 0px);
+}
+@media (min-width: 900px) {
+  .header {
+    background: transparent;
+    padding: 0;
+  }
+  .header .header-background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 240px;
+    clip-path: polygon(100% 0, 100% 50px, 220px 50px, 0 240px, 0 170px, 200px 0);
+    background-color: rgba(57, 136, 255, 0.5);
+  }
+  .header .hamburger-menu-button {
+    display: none;
+  }
+  .header .logo-main {
+    position: absolute;
+    height: 80px;
+    top: 60px;
+    left: 40px;
+  }
+  .header .nav {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    background-color: transparent;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    transition: right 0.3s ease;
+  }
+  .header .nav .nav-main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    padding-left: 250px;
+    padding-right: 50px;
+  }
+  .header .nav .nav-main > li {
+    font-size: 14px;
+    width: auto;
+    padding: 0;
+    text-align: center;
+    position: relative;
+  }
+  .header .nav .nav-main > li:not(:last-child)::after {
+    content: "";
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: initial;
+    height: initial;
+    background: none;
+  }
 }
 
 .section-title {
   position: relative;
   font-family: Impact, sans-serif;
-  background: rgba(57, 136, 255, 0.22);
-  width: 75%;
-  padding: 8px;
+  background: rgba(57, 136, 255, 0.25);
+  min-width: 70%;
+  padding: 10px;
   text-align: right;
   border: 1px solid #3988FF;
   box-shadow: 0 0 5px 1px #3988FF;
   margin: 25px auto 25px -3px;
+  text-transform: uppercase;
 }
 .section-title.align-right {
   margin: 25px -3px 25px auto;
   text-align: left;
+}
+@media (min-width: 600px) {
+  .section-title {
+    min-width: 60%;
+    font-size: 22px;
+    padding: 12px;
+  }
 }
 
 .img {
@@ -145,6 +243,38 @@ p {
   height: 250px;
   margin-right: -2px;
 }
+@media (min-width: 600px) {
+  .main .main-img {
+    width: 400px;
+    height: 350px;
+  }
+}
+@media (min-width: 900px) {
+  .main {
+    margin-top: 100px;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .main .main-text {
+    text-align: left;
+    margin: 25px 20px 25px 100px;
+    width: 45%;
+  }
+  .main .main-img {
+    width: 500px;
+    height: 350px;
+  }
+}
+@media (min-width: 1366px) {
+  .main .main-text {
+    margin: 25px 20px 25px 100px;
+    width: 45%;
+  }
+  .main .main-img {
+    width: 700px;
+    height: 600px;
+  }
+}
 
 .about {
   display: flex;
@@ -152,14 +282,51 @@ p {
   align-items: center;
   margin-top: 30px;
 }
-.about .about-img {
+.about .about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about .about-content .about-img {
   width: 300px;
   height: 400px;
 }
-.about .about-text {
+.about .about-content .about-text {
   margin: 25px 0;
   text-align: center;
   width: 90%;
+}
+@media (min-width: 600px) {
+  .about .about-content .about-img {
+    width: 500px;
+    height: 600px;
+  }
+}
+@media (min-width: 900px) {
+  .about .about-content {
+    margin: 50px 0;
+    width: 80%;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .about .about-content .about-img {
+    width: 350px;
+    height: 400px;
+  }
+  .about .about-content .about-text {
+    text-align: right;
+    padding: 40px;
+    font-size: 13px;
+  }
+}
+@media (min-width: 1366px) {
+  .about .about-content .about-img {
+    width: 500px;
+    height: 600px;
+  }
+  .about .about-content .about-text {
+    font-size: 18px;
+  }
 }
 
 .tablechoice {
@@ -181,7 +348,7 @@ p {
   width: 100%;
   padding: 20px;
   margin: 20px 0;
-  background-color: rgba(57, 136, 255, 0.22);
+  background-color: rgba(57, 136, 255, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,6 +379,16 @@ p {
   font-size: 11px;
   line-height: 15px;
   margin-left: 15px;
+}
+@media (min-width: 600px) {
+  .banner-stripe .banner-stripe-heading {
+    font-size: 40px;
+  }
+  .banner-stripe .banner-stripe-text {
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 10px;
+  }
 }
 
 .gallery {
@@ -247,33 +424,38 @@ p {
   filter: drop-shadow(0 0 5px #3988ff) drop-shadow(0 0 8px #3988ff);
 }
 
-.highlights-content {
+.highlights {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.highlights .highlights-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
 }
-.highlights-content .highlights-element {
+.highlights .highlights-content .highlights-element {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 90%;
 }
-.highlights-content .highlights-element:not(:last-child) {
+.highlights .highlights-content .highlights-element:not(:last-child) {
   margin-bottom: 20px;
 }
-.highlights-content .highlights-element .highlights-subtitle {
+.highlights .highlights-content .highlights-element .highlights-subtitle {
   font-size: 16px;
   font-weight: bold;
   color: #3988FF;
   margin: 20px auto 0 auto;
 }
-.highlights-content .highlights-element.highlights-element-right .dot-divider {
+.highlights .highlights-content .highlights-element.highlights-element-right .dot-divider {
   background: linear-gradient(to right, rgba(57, 136, 255, 0) 0%, #3988ff 100%);
 }
-.highlights-content .highlights-element.highlights-element-right .dot-divider::after {
+.highlights .highlights-content .highlights-element.highlights-element-right .dot-divider::after {
   content: "";
   width: 10px;
   height: 10px;
@@ -285,14 +467,13 @@ p {
   transform: translateY(-50%);
   box-shadow: 0 0 8px 3px #3988ff, 0 0 12px 2px #3988ff;
 }
-.highlights-content .highlights-element.highlights-element-right .dot-divider::before {
+.highlights .highlights-content .highlights-element.highlights-element-right .dot-divider::before {
   display: none;
 }
-.highlights-content .highlights-element .highlights-text {
+.highlights .highlights-content .highlights-element .highlights-text {
   font-size: 12px;
   text-align: center;
 }
-
 .summary {
   font-size: 1em;
   font-weight: 500;
