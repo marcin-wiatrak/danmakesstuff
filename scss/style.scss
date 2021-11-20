@@ -276,8 +276,8 @@ p {
   }
   @include tablet-portrait {
     .main-img {
-      width: 400px;
-      height: 350px;
+      width: 500px;
+      height: 400px;
     }
   }
   @include tablet-landscape {
@@ -368,14 +368,30 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .tablechoice-img {
-    width: 300px;
-    height: 300px;
-  }
-  .tablechoice-text {
+  .tablechoice-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 25px 0;
-    text-align: justify;
-    width: 90%;
+    @include tablet-portrait {
+      width: 90%;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .tablechoice-img {
+      width: 300px;
+      height: 300px;
+    }
+    .tablechoice-text {
+      margin: 25px 0;
+      text-align: justify;
+      width: 90%;
+      @include tablet-portrait {
+        display: block;
+        width: 50%;
+        margin: 0 0 0 30px;
+      }
+    }
   }
 }
 
@@ -447,20 +463,6 @@ p {
   }
 }
 
-.hexagon {
-  margin : 10px auto;
-  width: 280px;
-  height: 300px;
-  background-color: black;
-  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-}
-
-.hexagon-wrapper {
-  filter: drop-shadow(0 0 5px rgba(57, 136, 255, 1))
-    drop-shadow(0 0 8px rgba(57, 136, 255, 1));
-
-}
-
 .highlights {
   display: flex;
   flex-direction: column;
@@ -471,57 +473,103 @@ p {
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
-
     .highlights-element {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 90%;
-
+      @include tablet-landscape {
+        flex-direction: row-reverse;
+        margin-left: -150px;
+        &:not(:first-child) {
+          margin-top: -80px
+        }
+      }
+      .hexagon-wrapper {
+        filter: drop-shadow(0 0 5px rgba(57, 136, 255, 1))
+        drop-shadow(0 0 8px rgba(57, 136, 255, 1));
+        .hexagon {
+          margin : 10px auto;
+          width: 80vw;
+          height: 80vw;
+          background-color: black;
+          clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+          @include tablet-portrait {
+            width: 50vw;
+            height: 50vw;
+          }
+          @include tablet-landscape {
+            width: 35vw;
+            height: 35vw;
+          }
+        }
+      }
       &:not(:last-child) {
         margin-bottom: 20px;
       }
-
-      .highlights-subtitle {
-        font-size: 16px;
-        font-weight: bold;
-        color: $mainBlue;
-        margin: 20px auto 0 auto;
-      }
-
-      &.highlights-element-right {
-        .dot-divider {
-          background: linear-gradient(to right, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 100%);
-
-          &::after {
-            content: "";
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: $mainBlue;
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
+      .highlight-description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include tablet-landscape {
+          width: 300px;
+          margin: 0 30px;
+        }
+        .highlights-subtitle {
+          font-size: 16px;
+          font-weight: bold;
+          color: $mainBlue;
+          margin: 20px auto 0 auto;
+          @include tablet-portrait {
+            font-size: 22px;
           }
-
-          &::before {
-            display: none;
+          @include tablet-landscape {
+            font-size: 18px;
           }
         }
-
+        .highlights-text {
+          font-size: 12px;
+          text-align: center;
+          @include tablet-portrait {
+            font-size: 18px;
+          }
+          @include tablet-landscape {
+            font-size: 12px;
+          }
+        }
       }
-
-      .highlights-text {
-        font-size: 12px;
-        text-align: center;
+      &.highlights-element-right {
+        .highlight-description {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .dot-divider {
+            background: linear-gradient(to right, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 1) 100%);
+            &::after {
+              content: "";
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background: $mainBlue;
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
+            }
+            &::before {
+              display: none;
+            }
+          }
+        }
+        @include tablet-landscape {
+          flex-direction: row;
+          margin-left: 150px;
+        }
       }
-
     }
-
-    @include laptop {
+    @include tablet-portrait {
 
     }
   }
@@ -539,7 +587,7 @@ p {
   width: 80%;
   height: 2px;
   background: $mainBlue;
-  background: linear-gradient(to left, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 100%);
+  background: linear-gradient(to left, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 1) 100%);
   margin: 30px 0;
   position: relative;
 
@@ -555,53 +603,68 @@ p {
     transform: translateY(-50%);
     box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
   }
+
+  @include tablet-portrait {
+    width: 60%;
+  }
 }
 
 .collections {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .collections-collection {
+  .collections-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    .collections-subtitle {
-        font-size: 22px;
-        font-weight: bold;
-        color: $mainBlue;
-        margin: 20px auto 0 auto;
-    }
-    &.collections-collection-right {
-          .dot-divider {
-            background: linear-gradient(to right, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 100%);
+    .collections-collection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      @include tablet-portrait {
+        width: 50%;
+        align-self: flex-start;
+      }
+      .collections-subtitle {
+          font-size: 22px;
+          font-weight: bold;
+          color: $mainBlue;
+          margin: 20px auto 0 auto;
+      }
+      &.collections-collection-right {
+            .dot-divider {
+              background: linear-gradient(to right, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 1) 100%);
 
-            &::after {
-              content: "";
-              width: 10px;
-              height: 10px;
-              border-radius: 50%;
-              background: $mainBlue;
-              position: absolute;
-              right: 0;
-              top: 50%;
-              transform: translateY(-50%);
-              box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
-            }
+              &::after {
+                content: "";
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: $mainBlue;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
+              }
 
-            &::before {
-              display: none;
+              &::before {
+                display: none;
+              }
             }
-          }
-         }
-    .collection-img {
-        width: 300px;
-        height: 300px;
-        margin: 0 0 25px 0;
-    }
-    .collection-description {
-        text-align: center;
-        font-size: 12px;
-        margin-bottom: 20px;
+           }
+      .collection-img {
+          width: 300px;
+          height: 300px;
+          margin: 0 0 25px 0;
+      }
+      .collection-description {
+          text-align: center;
+          font-size: 12px;
+          margin-bottom: 20px;
+      }
     }
   }
 }
