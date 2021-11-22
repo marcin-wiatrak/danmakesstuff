@@ -28,7 +28,9 @@ $mainBlue: #3988FF;
 $mainBlue25: rgba(57, 136, 255, 0.25);
 $mainBlue50: rgba(57, 136, 255, 0.5);
 $mainBlue90: rgba(57, 136, 255, 0.9);
-
+html {
+  overflow-x: hidden;
+}
 body {
   color: white;
   background-size: 100% calc(20vh + 200px);
@@ -36,6 +38,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 p {
@@ -68,9 +71,6 @@ p {
     transition: right .3s ease;
     padding: 0;
     margin: 0;
-    &.active {
-      right: 0;
-    }
 
     .nav-main {
       display: flex;
@@ -85,11 +85,40 @@ p {
       background-color: $mainBlue90;
 
       & > li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 90%;
-        padding: 12px 0;
+        height: 100%;
         text-align: center;
         position: relative;
         text-transform: uppercase;
+        background-color: transparent;
+        transition: background-color .3s ease;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+        .nav-main-link {
+          display: grid;
+          place-items: center;
+          position: relative;
+          font-size: 12px;
+          text-decoration: none;
+          color: white;
+          padding: 0 15px;
+          height: 100%;
+          &:hover::after {
+            content: "";
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 10px);
+            height: 1px;
+            background-color: white;
+            width: 0;
+            animation: link-hover .5s ease both;
+          }
+        }
       }
       & > li:not(:last-child)::after {
         content: "";
@@ -101,6 +130,26 @@ p {
         background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(0, 0, 0, 0) 100%);
       }
     }
+    &.active {
+      right: 0;
+      position: fixed;
+      .nav-main {
+        li {
+          padding: 15px 0;
+          .nav-main-link {
+            font-size: 20px;
+            width: 100%;
+            &:hover::after {
+              content: initial;
+            }
+          }
+        }
+      }
+    }
+  }
+  @keyframes link-hover {
+    0% { width: 0; }
+    100% { width: calc(100% - 30px); }
   }
 
   .logo-main {
@@ -249,6 +298,10 @@ p {
     min-width: 60%;
     font-size: 22px;
     padding: 12px;
+  }
+  @include tablet-landscape {
+    font-size: 28px;
+    padding: 16px;
   }
 }
 
@@ -404,20 +457,17 @@ p {
   align-items: center;
   justify-content: center;
   position: relative;
-  &:before {
+  &::before, &::after {
     position: absolute;
     content: "";
     width: 100%;
     height: 1px;
     background: linear-gradient(90deg, rgba(57, 136, 255, 0.25) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 0.25) 100%);
+  }
+  &::before {
     top: 0;
   }
-  &:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(57, 136, 255, 0.25) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 0.25) 100%);
+  &::after {
     bottom: 0;
   }
   .banner-stripe-heading {
@@ -431,13 +481,28 @@ p {
     margin-left: 15px;
   }
   @include tablet-portrait {
+    padding: 40px;
     .banner-stripe-heading {
       font-size: 40px;
     }
     .banner-stripe-text {
       font-size: 14px;
       line-height: 20px;
-      margin-left: 10px;
+      margin-left: 20px;
+    }
+    &::before, &::after {
+      height: 2px;
+    }
+  }
+  @include tablet-landscape {
+    padding: 50px;
+    .banner-stripe-heading {
+      font-size: 50px;
+    }
+    .banner-stripe-text {
+      font-size: 18px;
+      line-height: 20px;
+      margin-left: 20px;
     }
   }
 }
@@ -447,15 +512,24 @@ p {
   flex-direction: column;
   align-items: center;
   .gallery-content {
-    min-height: 500px;
-    width: 90%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 40vw);
+    grid-template-rows: repeat(4, 40vw);
     grid-gap: 20px;
+    @include tablet-portrait {
+      margin: 40px 0;
+      grid-template-columns: repeat(3, 25vw);
+      grid-template-rows: repeat(3, 25vw);
+    }
     .gallery-img:first-child {
       grid-column: 1/3;
       grid-row: 1/3;
+    }
+    .gallery-img:last-child {
+      display: none;
+      @include tablet-portrait {
+        display: block;
+      }
     }
     .gallery-img {
       background-color: #3988FF;
@@ -473,6 +547,9 @@ p {
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
+    @include tablet-landscape {
+        margin-top: 40px;
+    }
     .highlights-element {
       display: flex;
       flex-direction: column;
@@ -579,18 +656,23 @@ p {
     font-size: 1em;
     font-weight: 500;
     text-align: center;
-    margin-bottom: 40px;
+    margin: 60px 15px;
     line-height: 1.8;
+    color: #ccc;
+    text-shadow: 0 0 30px;
+    @include tablet-portrait {
+        font-size: 1.3em;
+    }
   }
 
 .dot-divider {
-  width: 80%;
+  //border: 1px solid red;
+  width: 200px;
   height: 2px;
   background: $mainBlue;
   background: linear-gradient(to left, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 1) 100%);
   margin: 30px 0;
   position: relative;
-
   &::before {
     content: "";
     width: 10px;
@@ -603,7 +685,6 @@ p {
     transform: translateY(-50%);
     box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
   }
-
   @include tablet-portrait {
     width: 60%;
   }
@@ -624,46 +705,71 @@ p {
       justify-content: center;
       width: 90%;
       @include tablet-portrait {
-        width: 50%;
-        align-self: flex-start;
+        flex-direction: row-reverse;
+        flex: 1 1 50%;
       }
-      .collections-subtitle {
+      .collection-img {
+        width: 300px;
+        height: 300px;
+        margin: 25px 0 0 0;
+      }
+      .collection-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .collections-subtitle {
+          text-align: right;
           font-size: 22px;
           font-weight: bold;
           color: $mainBlue;
           margin: 20px auto 0 auto;
-      }
-      &.collections-collection-right {
-            .dot-divider {
-              background: linear-gradient(to right, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 1) 100%);
-
-              &::after {
-                content: "";
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: $mainBlue;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
-              }
-
-              &::before {
-                display: none;
-              }
-            }
-           }
-      .collection-img {
-          width: 300px;
-          height: 300px;
-          margin: 0 0 25px 0;
-      }
-      .collection-description {
+        }
+        .collection-description {
           text-align: center;
           font-size: 12px;
           margin-bottom: 20px;
+          @include tablet-portrait {
+            text-align: right;
+          }
+        }
+        .dot-divider {
+          margin: 25px 0;
+        }
+        @include tablet-portrait {
+          margin-right: 30px;
+          flex: 1 1 50%;
+        }
+      }
+      &.collections-collection-right {
+        @include tablet-portrait {
+          flex-direction: row;
+        }
+        .collection-box {
+          @include tablet-portrait {
+            margin-left: 30px;
+            .collection-description {
+              text-align: left;
+            }
+          }
+          .dot-divider {
+            background: linear-gradient(to right, rgba(57, 136, 255, 0) 0%, rgba(57, 136, 255, 1) 50%, rgba(57, 136, 255, 1) 100%);
+            &::after {
+              content: "";
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background: $mainBlue;
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              box-shadow: 0 0 8px 3px rgba(57, 136, 255, 1), 0 0 12px 2px rgba(57, 136, 255, 1);
+            }
+            &::before {
+            display: none;
+          }
+        }
+        }
       }
     }
   }
@@ -678,10 +784,12 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 30px 0;
     .faq-item {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      width: 100%;
       &:not(:first-child) {
         margin-top: 20px;
       }
@@ -695,6 +803,13 @@ p {
         width: 90%;
         text-align: justify;
       }
+    }
+  }
+  .faq-decoration {
+    display: none;
+    width: 300px;
+    @include laptop {
+      display: block;
     }
   }
 }

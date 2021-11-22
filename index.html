@@ -27,16 +27,16 @@
     </button>
     <nav class="nav" id="nav">
         <ul class="nav-main">
-            <li>Home</li>
-            <li>Kim jestem?</li>
-            <li>O firmie</li>
-            <li>Kolekcje</li>
-            <li>FAQ</li>
-            <li>Kontakt</li>
+            <li><a href="#main" class="nav-main-link">Home</a></li>
+            <li><a href="#highlights" class="nav-main-link">Kim jestem?</a></li>
+            <li><a href="#" class="nav-main-link">O firmie</a></li>
+            <li><a href="#" class="nav-main-link">Kolekcje</a></li>
+            <li><a href="#" class="nav-main-link">FAQ</a></li>
+            <li><a href="#" class="nav-main-link">Kontakt</a></li>
         </ul>
     </nav>
 </header>
-<section class="main">
+<section class="main" id="main">
     <p class="main-text">
         Tworzymy unikatowe stoły bazujące na drewnie, żywicy epoksydowej i metalu.
         Głównym założeniem naszej manufaktury jest tworzenie prawdziwych dzieł sztuki pełniących funkcję użytkową.
@@ -46,7 +46,7 @@
     </p>
     <div class="main-img img"></div>
 </section>
-<section class="about">
+<section class="about" id="about">
     <h2 class="section-title">KTO ZA TYM WSZYSTKIM STOI?</h2>
     <div class="about-content">
         <div class="about-img img"></div>
@@ -62,7 +62,7 @@
         </p>
     </div>
 </section>
-<section class="highlights">
+<section class="highlights" id="highlights">
     <h2 class="section-title align-right">CO NAS WYRÓŻNIA</h2>
     <div class="highlights-content">
         <div class="highlights-element highlights-element-right">
@@ -142,7 +142,7 @@
         bez obaw... z chęcią pomożemy dostosować projekt tak, aby spełniał wszystkie twoje oczekiwania!
     </p>
 </section>
-<section class="tablechoice">
+<section class="tablechoice" id="tablechoice">
     <h2 class="section-title">Dlaczego wybór stołu jest taki ważny?</h2>
     <div class="tablechoice-content">
         <div class="img tablechoice-img">Zdj1</div>
@@ -158,27 +158,31 @@
         </p>
     </div>
 </section>
-<section class="collections">
+<section class="collections" id="collections">
     <h2 class="section-title align-right">Kolekcje</h2>
     <div class="collections-content">
-        <div class="collections-collection">
-            <h4 class="collections-subtitle">Kolekcja salonowa</h4>
-            <span class="dot-divider"></span>
-            <div class="img collection-img">Zdj1</div>
-            <p class="collection-description">Nasze stoły z kolekcji salonowej, pachną świeżą kawą o poranku i aromatycznym drzewem z polskich lasów. Mimo prostoty w każdym zatopiona jest historia wieloletnich drzew, która będzie z wami na długie dekady. Chcemy, żeby w waszym życiu zagościł ekskluzywny minimalizm.</p>
-        </div>
         <div class="collections-collection collections-collection-right">
-            <h4 class="collections-subtitle">Kolekcja premium</h4>
-            <span class="dot-divider"></span>
+            <div class="img collection-img">Zdj1</div>
+            <div class="collection-box">
+                <h4 class="collections-subtitle">Kolekcja salonowa</h4>
+                <span class="dot-divider"></span>
+                <p class="collection-description">Nasze stoły z kolekcji salonowej, pachną świeżą kawą o poranku i aromatycznym drzewem z polskich lasów. Mimo prostoty w każdym zatopiona jest historia wieloletnich drzew, która będzie z wami na długie dekady. Chcemy, żeby w waszym życiu zagościł ekskluzywny minimalizm.</p>
+            </div>
+        </div>
+        <div class="collections-collection">
             <div class="img collection-img">Zdj2</div>
-            <p class="collection-description">Żywica daje nam możliwość zatapiania w niej wszystkiego o czym tylko pomyślimy. Dzięki temu możemy stworzyć stół, który z pewnością będzie odbiegał swoim wyglądem od innych. Wykorzystanie sprawnych umysłów sprawia, że jesteśmy w stanie stworzyć stół, który przekracza granice wyobraźni!</p>
+            <div class="collection-box">
+                <h4 class="collections-subtitle">Kolekcja premium</h4>
+                <span class="dot-divider"></span>
+                <p class="collection-description">Żywica daje nam możliwość zatapiania w niej wszystkiego o czym tylko pomyślimy. Dzięki temu możemy stworzyć stół, który z pewnością będzie odbiegał swoim wyglądem od innych. Wykorzystanie sprawnych umysłów sprawia, że jesteśmy w stanie stworzyć stół, który przekracza granice wyobraźni!</p>
+            </div>
         </div>
     </div>
     <p class="summary">
         Przelanie wielkiej kreatywności w materię o wyjątkowym charakterze!
     </p>
 </section>
-<section class="gallery">
+<section class="gallery" id="gallery">
     <h2 class="section-title">Galeria</h2>
     <div class="gallery-content">
         <div class="gallery-img">Zdj1</div>
@@ -186,9 +190,10 @@
         <div class="gallery-img">Zdj3</div>
         <div class="gallery-img">Zdj4</div>
         <div class="gallery-img">Zdj5</div>
+        <div class="gallery-img">Zdj6</div>
     </div>
 </section>
-<section class="faq">
+<section class="faq" id="faq">
     <h2 class="section-title align-right">FAQ</h2>
     <div class="faq-content">
         <div class="faq-item">
@@ -210,7 +215,7 @@
             </p>
         </div>
     </div>
-    <div class="faq-decoration"></div>
+    <img src="./assets/img/faq_decor.svg" class="faq-decoration" alt="Decoration" />
 </section>
 <footer class="footer">
     <h5 class="footer-copyrights">danmakesstuff.pl &copy; 2021</h5>
