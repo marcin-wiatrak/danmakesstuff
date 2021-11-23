@@ -150,7 +150,8 @@ p {
   width: 100%;
   border-radius: 1px;
   background-color: white;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
+  transition-property: opacity, top, left, transform;
 }
 .header .hamburger-menu-button .hamburger-dash::before {
   content: "";
@@ -323,6 +324,18 @@ p {
   .section-title {
     font-size: 28px;
     padding: 16px;
+  }
+}
+@media (min-width: 1366px) {
+  .section-title {
+    font-size: 34px;
+    padding: 20px;
+  }
+}
+@media (min-width: 1366px) {
+  .section-title {
+    font-size: 34px;
+    padding: 20px;
   }
 }
 
@@ -854,6 +867,18 @@ p {
   height: 300px;
   margin: 25px 0 0 0;
 }
+@media (min-width: 1366px) {
+  .collections .collections-content .collections-collection .collection-img {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media (min-width: 1600px) {
+  .collections .collections-content .collections-collection .collection-img {
+    width: 500px;
+    height: 500px;
+  }
+}
 .collections .collections-content .collections-collection .collection-box {
   display: flex;
   flex-direction: column;
@@ -866,6 +891,16 @@ p {
   color: #3988FF;
   margin: 20px auto 0 auto;
 }
+@media (min-width: 1366px) {
+  .collections .collections-content .collections-collection .collection-box .collections-subtitle {
+    font-size: 25px;
+  }
+}
+@media (min-width: 1600px) {
+  .collections .collections-content .collections-collection .collection-box .collections-subtitle {
+    font-size: 30px;
+  }
+}
 .collections .collections-content .collections-collection .collection-box .collection-description {
   text-align: center;
   font-size: 12px;
@@ -876,13 +911,44 @@ p {
     text-align: right;
   }
 }
+@media (min-width: 1366px) {
+  .collections .collections-content .collections-collection .collection-box .collection-description {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1600px) {
+  .collections .collections-content .collections-collection .collection-box .collection-description {
+    font-size: 20px;
+  }
+}
 .collections .collections-content .collections-collection .collection-box .dot-divider {
+  width: 80%;
   margin: 25px 0;
+}
+@media (min-width: 1366px) {
+  .collections .collections-content .collections-collection .collection-box .dot-divider {
+    margin: 35px 0;
+  }
+}
+@media (min-width: 1600px) {
+  .collections .collections-content .collections-collection .collection-box .dot-divider {
+    margin: 40px 0;
+  }
 }
 @media (min-width: 600px) {
   .collections .collections-content .collections-collection .collection-box {
     margin-right: 30px;
     flex: 1 1 50%;
+  }
+}
+@media (min-width: 1366px) {
+  .collections .collections-content .collections-collection .collection-box {
+    margin-right: 40px;
+  }
+}
+@media (min-width: 1600px) {
+  .collections .collections-content .collections-collection .collection-box {
+    margin-right: 50px;
   }
 }
 @media (min-width: 600px) {
@@ -896,6 +962,16 @@ p {
   }
   .collections .collections-content .collections-collection.collections-collection-right .collection-box .collection-description {
     text-align: left;
+  }
+}
+@media (min-width: 1366px) {
+  .collections .collections-content .collections-collection.collections-collection-right .collection-box {
+    margin-left: 40px;
+  }
+}
+@media (min-width: 1600px) {
+  .collections .collections-content .collections-collection.collections-collection-right .collection-box {
+    margin-left: 50px;
   }
 }
 .collections .collections-content .collections-collection.collections-collection-right .collection-box .dot-divider {
@@ -916,46 +992,93 @@ p {
 .collections .collections-content .collections-collection.collections-collection-right .collection-box .dot-divider::before {
   display: none;
 }
+@media (min-width: 1366px) {
+  .collections .collections-content {
+    width: 1000px;
+  }
+}
+@media (min-width: 1600px) {
+  .collections .collections-content {
+    width: 1200px;
+  }
+}
 
 .faq {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.faq .faq-content {
+.faq .faq-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 90%;
+}
+@media (min-width: 1366px) {
+  .faq .faq-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+  }
+}
+@media (min-width: 1600px) {
+  .faq .faq-container {
+    width: 1200px;
+  }
+}
+.faq .faq-container .faq-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 30px 0;
 }
-.faq .faq-content .faq-item {
+.faq .faq-container .faq-content .faq-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
 }
-.faq .faq-content .faq-item:not(:first-child) {
+.faq .faq-container .faq-content .faq-item:not(:first-child) {
   margin-top: 20px;
 }
-.faq .faq-content .faq-item .faq-question {
+.faq .faq-container .faq-content .faq-item .faq-question {
   font-weight: 600;
   line-height: 2;
   color: #3988FF;
 }
-.faq .faq-content .faq-item .faq-answer {
+.faq .faq-container .faq-content .faq-item .faq-answer {
   align-self: flex-end;
   width: 90%;
   text-align: justify;
 }
-.faq .faq-decoration {
+@media (min-width: 1366px) {
+  .faq .faq-container .faq-content .faq-item .faq-question {
+    font-size: 1.2rem;
+  }
+  .faq .faq-container .faq-content .faq-item .faq-answer {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1600px) {
+  .faq .faq-container .faq-content .faq-item .faq-question {
+    font-size: 1.4rem;
+  }
+  .faq .faq-container .faq-content .faq-item .faq-answer {
+    font-size: 1.1rem;
+  }
+}
+.faq .faq-container .faq-decorator-box {
   display: none;
-  width: 300px;
+  margin-left: 50px;
 }
 @media (min-width: 1366px) {
-  .faq .faq-decoration {
+  .faq .faq-container .faq-decorator-box {
     display: block;
   }
+}
+.faq .faq-container .faq-decorator-box .faq-decoration {
+  width: 300px;
 }
 
 .footer {
@@ -971,6 +1094,25 @@ p {
 }
 .footer .footer-by {
   font-size: 9px;
+}
+@media (min-width: 900px) {
+  .footer {
+    padding: 20px;
+  }
+  .footer .footer-copyrights {
+    font-size: 15px;
+  }
+  .footer .footer-by {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1366px) {
+  .footer .footer-copyrights {
+    font-size: 17px;
+  }
+  .footer .footer-by {
+    font-size: 14px;
+  }
 }
 
 @keyframes slide-menu-right {
