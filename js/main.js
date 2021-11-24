@@ -4,7 +4,8 @@ const body = document.querySelector('body');
 const header = document.querySelector('.header');
 const scrollBtn = document.querySelector('.scroll-top-btn');
 const headerHeight = header.style.height;
-const navbar = document.querySelector('.header-background')
+const navbar = document.querySelector('.header-background');
+const logoMain = document.querySelector('.logo-main');
 
 let lastScrollPosition = 0;
 let previousScroll = window.scrollY || document.scrollTop;
@@ -70,12 +71,14 @@ const toggleBtnVisibility = () => {
   if (!window.scrollY) {
     scrollBtn.classList.remove('active');
     navbar.classList.remove('scroll')
+    logoMain.classList.remove('scroll')
   }
   if (window.scrollY > 500) {
     scrollBtn.classList.add('active');
   }
   if (window.scrollY > 50) {
     navbar.classList.add('scroll');
+    logoMain.classList.add('scroll');
   }
 };
 

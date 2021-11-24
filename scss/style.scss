@@ -28,6 +28,7 @@ $mainBlue: #3988ff;
 $mainBlue25: rgba(57, 136, 255, 0.25);
 $mainBlue50: rgba(57, 136, 255, 0.5);
 $mainBlue90: rgba(57, 136, 255, 0.9);
+$menuBlue: #234986;
 
 html {
   overflow-x: hidden;
@@ -36,8 +37,9 @@ html {
 
 body {
   color: white;
-  background-size: auto calc(20vh + 400px);
-  background: url(../assets/img/bg.jpg) no-repeat fixed center 0;
+  background: url(../assets/img/bg2.jpg) no-repeat fixed center 0;
+  //background-size: contain;
+  background-size: auto calc(100vh + 600px);
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
@@ -50,6 +52,9 @@ p {
   line-height: 1.5;
   @include tablet-portrait {
     font-size: 16px;
+  }
+  &::selection {
+    color: #3988ff;
   }
 }
 
@@ -87,7 +92,7 @@ p {
   align-items: center;
   padding: 8px 16px;
   visibility: visible;
-  background-color: $mainBlue;
+  background-color: $menuBlue;
 
   &.hide {
     visibility: hidden;
@@ -288,8 +293,8 @@ p {
         0 170px,
         200px 0
       );
-      background-color: $mainBlue50;
-      transition: clip-path .3s;
+      background-color: $menuBlue;
+      transition: clip-path .2s;
       &.scroll {
         clip-path: polygon(100% 0, 100% 50px, 220px 50px, 0 50px, 0 0, 200px 0);
       }
@@ -302,6 +307,12 @@ p {
       height: 80px;
       top: 60px;
       left: 40px;
+      transition: .2s ease;
+      &.scroll {
+        height: 40px;
+        top: 5px;
+        left: 30px;
+      }
     }
     .nav {
       position: relative;
@@ -360,6 +371,11 @@ p {
       height: 100px;
       top: 80px;
       left: 60px;
+      &.scroll {
+        height: 40px;
+        top: 5px;
+        left: 100px;
+      }
     }
     .nav {
       .nav-main {
@@ -391,11 +407,19 @@ p {
         0 310px,
         360px 0
       );
+      &.scroll {
+        clip-path: polygon(100% 0, 100% 60px, 220px 60px, 0 60px, 0 0, 200px 0);
+      }
     }
     .logo-main {
       height: 120px;
       top: 100px;
       left: 80px;
+      &.scroll {
+        height: 50px;
+        top: 5px;
+        left: 120px;
+      }
     }
     .nav {
       height: 60px;
@@ -1128,8 +1152,8 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  margin-top: 25px;
   background-color: $mainBlue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   .footer-copyrights {
     font-size: 12px;
   }
@@ -1153,6 +1177,11 @@ p {
       font-size: 14px;
     }
   }
+}
+
+.contact {
+  padding: 30px;
+  background-color: #1d4e9a;
 }
 
 @keyframes slide-menu-right {
