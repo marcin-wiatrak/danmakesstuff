@@ -61,6 +61,11 @@ p {
 .header.hide {
   visibility: hidden;
 }
+@media (min-width: 900px) {
+  .header.hide {
+    visibility: visible;
+  }
+}
 .header .header-background {
   display: none;
 }
@@ -232,6 +237,10 @@ p {
     height: 240px;
     clip-path: polygon(100% 0, 100% 50px, 220px 50px, 0 240px, 0 170px, 200px 0);
     background-color: rgba(57, 136, 255, 0.5);
+    transition: clip-path 0.3s;
+  }
+  .header .header-background.scroll {
+    clip-path: polygon(100% 0, 100% 50px, 220px 50px, 0 50px, 0 0, 200px 0);
   }
   .header .hamburger-menu-button {
     display: none;

@@ -92,6 +92,13 @@ p {
   &.hide {
     visibility: hidden;
   }
+
+  @include tablet-landscape {
+    &.hide {
+      visibility: visible;
+    }
+  }
+
   .header-background {
     display: none;
   }
@@ -282,6 +289,10 @@ p {
         200px 0
       );
       background-color: $mainBlue50;
+      transition: clip-path .3s;
+      &.scroll {
+        clip-path: polygon(100% 0, 100% 50px, 220px 50px, 0 50px, 0 0, 200px 0);
+      }
     }
     .hamburger-menu-button {
       display: none;
