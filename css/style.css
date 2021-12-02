@@ -403,6 +403,10 @@ p::selection {
 }
 
 .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   background-color: black;
   box-shadow: 0 0 2px 2px #3988ff;
   border: 1px solid #3988ff;
@@ -1190,6 +1194,18 @@ p::selection {
   100% {
     right: 0;
   }
+}
+.maintenance-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.maintenance-wrapper h1 {
+  margin-top: 20px;
+  font-size: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */
