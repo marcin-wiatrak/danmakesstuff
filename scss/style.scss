@@ -550,6 +550,9 @@ p {
     .about-img {
       width: 300px;
       height: 400px;
+      img {
+        height: 100%;
+      }
     }
     .about-text {
       margin: 25px 0;
@@ -739,6 +742,9 @@ p {
         filter: drop-shadow(0 0 5px rgba(57, 136, 255, 1))
           drop-shadow(0 0 8px rgba(57, 136, 255, 1));
         .hexagon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           margin: 10px auto;
           width: 80vw;
           height: 80vw;
@@ -759,6 +765,14 @@ p {
           @include desktop {
             width: 25vw;
             height: 25vw;
+          }
+          .img-portrait {
+            width: 100%;
+            filter: brightness(60%);
+          }
+          .img-landscape {
+            filter: brightness(60%);
+            height: 100%;
           }
         }
       }
@@ -872,6 +886,9 @@ p {
         width: 500px;
         height: 500px;
       }
+      img {
+        height: 100%;
+      }
     }
     .tablechoice-text {
       margin: 25px 0;
@@ -973,6 +990,9 @@ p {
         @include desktop {
           width: 500px;
           height: 500px;
+        }
+        img {
+          width: 100%
         }
       }
       .collection-box {

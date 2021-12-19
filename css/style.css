@@ -487,6 +487,9 @@ p::selection {
   width: 300px;
   height: 400px;
 }
+.about .about-content .about-img img {
+  height: 100%;
+}
 .about .about-content .about-text {
   margin: 25px 0;
   text-align: center;
@@ -678,6 +681,9 @@ p::selection {
   filter: drop-shadow(0 0 5px #3988ff) drop-shadow(0 0 8px #3988ff);
 }
 .highlights .highlights-content .highlights-element .hexagon-wrapper .hexagon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px auto;
   width: 80vw;
   height: 80vw;
@@ -707,6 +713,14 @@ p::selection {
     width: 25vw;
     height: 25vw;
   }
+}
+.highlights .highlights-content .highlights-element .hexagon-wrapper .hexagon .img-portrait {
+  width: 100%;
+  filter: brightness(60%);
+}
+.highlights .highlights-content .highlights-element .hexagon-wrapper .hexagon .img-landscape {
+  filter: brightness(60%);
+  height: 100%;
 }
 .highlights .highlights-content .highlights-element:not(:last-child) {
   margin-bottom: 20px;
@@ -829,6 +843,9 @@ p::selection {
     height: 500px;
   }
 }
+.tablechoice .tablechoice-content .tablechoice-img img {
+  height: 100%;
+}
 .tablechoice .tablechoice-content .tablechoice-text {
   margin: 25px 0;
   text-align: justify;
@@ -945,6 +962,9 @@ p::selection {
     width: 500px;
     height: 500px;
   }
+}
+.collections .collections-content .collections-collection .collection-img img {
+  width: 100%;
 }
 .collections .collections-content .collections-collection .collection-box {
   display: flex;
