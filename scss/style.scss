@@ -37,8 +37,8 @@ html {
 
 body {
   color: white;
-  background: url(../assets/img/bg2.jpg) no-repeat center 0;
-  background-attachment: fixed;
+  background: url(../assets/img/bg2.jpg) repeat-y center 0;
+  background-attachment: scroll;
   background-size: auto calc(100vh + 600px);
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
@@ -526,18 +526,18 @@ p {
   }
   @include tablet-landscape {
     padding-top: 100px;
-    max-width: 900px;
+    max-width: 700px;
     flex-direction: row;
     justify-content: flex-end;
     margin: 0 auto;
     gap: 30px;
     .main-text {
       text-align: left;
-      font-size: 1.2rem;
+      font-size: 0.9rem;
     }
     .main-img {
-      min-width: 600px;
-      height: 500px;
+      min-width: 400px;
+      height: 350px;
     }
   }
   @include laptop {
@@ -1325,6 +1325,7 @@ p {
       border: none;
       padding: 8px;
       transition: transform 0.3s ease;
+      white-space: nowrap;
       &:hover {
         transform: translateY(-5px);
       }
@@ -1336,6 +1337,8 @@ p {
     }
     @include tablet-landscape {
       flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
     }
   }
 }
