@@ -6,6 +6,7 @@ const scrollBtn = document.querySelector('.scroll-top-btn');
 const headerHeight = header.style.height;
 const navbar = document.querySelector('.header-background');
 const logoMain = document.querySelector('.logo-main');
+const navLinks = document.querySelectorAll('.nav-main-link');
 
 let lastScrollPosition = 0;
 let previousScroll = window.scrollY || document.scrollTop;
@@ -51,6 +52,11 @@ const toggleMenu = () => {
   hamburgerButton.classList.toggle('active');
 };
 
+const closeMenu = () => {
+  nav.classList.remove('active');
+  hamburgerButton.classList.remove('active');
+};
+
 const fn = () => {
   const scrollToTop = document.scrollingElement.scrollTop;
   const xvalue = 'center';
@@ -82,11 +88,15 @@ const toggleBtnVisibility = () => {
   }
 };
 
-window.addEventListener('scroll', checkScroll);
+navLinks.forEach(el => {
+  el.addEventListener('click', closeMenu)
+})
+
+// window.addEventListener('scroll', checkScroll);
 window.addEventListener('scroll', toggleBtnVisibility);
-body.onscroll = () => fn();
-body.addEventListener('gesturechange', fn);
-body.addEventListener('scroll', fn);
+// body.onscroll = () => fn();
+// body.addEventListener('gesturechange', fn);
+// body.addEventListener('scroll', fn);
 hamburgerButton.addEventListener('click', changeMenuStatus);
 scrollBtn.addEventListener('click', scrollToTop);
 

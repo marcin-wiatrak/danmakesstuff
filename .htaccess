@@ -1,5 +1,5 @@
 //301 Redirect Old File
-Redirect /index.html /maintenance.html
+Redirect /index.html /
 
 //Prevent viewing of .htaccess file
 <Files .htaccess>
@@ -9,3 +9,7 @@ deny from all
 
 //Prevent directory listings
 Options All -Indexes
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]

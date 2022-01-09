@@ -37,8 +37,8 @@ html {
 
 body {
   color: white;
-  background: url(../assets/img/bg2.jpg) no-repeat fixed center 0;
-  //background-size: contain;
+  background: url(../assets/img/bg2.jpg) no-repeat center 0;
+  background-attachment: fixed;
   background-size: auto calc(100vh + 600px);
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
@@ -64,22 +64,34 @@ p {
   font-size: 30px;
   cursor: pointer;
   position: fixed;
-  bottom: -20vw;
-  right: 5vw;
+  bottom: 0;
+  right: 20px;
   opacity: 0;
   transform: rotate(90deg);
   padding: 12px;
-  background-color: $mainBlue50;
+  background-color: $mainBlue25;
   transition: 0.3s ease;
   transition-property: background-color, opacity, bottom;
 
   &.active {
     opacity: 1;
-    bottom: 15vw;
+    bottom: 20px;
+    @include tablet-portrait {
+      bottom: 40px;
+    }
+    @include tablet-landscape {
+      bottom: 50px;
+    }
   }
 
   &:hover {
     background-color: $mainBlue;
+  }
+  @include tablet-portrait {
+    right: 40px;
+  }
+  @include tablet-landscape {
+    right: 50px;
   }
 }
 
@@ -92,7 +104,7 @@ p {
   align-items: center;
   padding: 8px 16px;
   visibility: visible;
-  background-color: $menuBlue;
+  background-color: $mainBlue50;
 
   &.hide {
     visibility: hidden;
@@ -294,9 +306,10 @@ p {
         200px 0
       );
       background-color: $menuBlue;
-      transition: clip-path .2s;
+      transition: clip-path, background-color .2s ease-in-out;
       &.scroll {
         clip-path: polygon(100% 0, 100% 50px, 220px 50px, 0 50px, 0 0, 200px 0);
+        background-color: $mainBlue50;
       }
     }
     .hamburger-menu-button {
@@ -409,6 +422,7 @@ p {
       );
       &.scroll {
         clip-path: polygon(100% 0, 100% 60px, 220px 60px, 0 60px, 0 0, 200px 0);
+        background-color: $mainBlue50;
       }
     }
     .logo-main {
@@ -477,59 +491,65 @@ p {
   background-color: black;
   box-shadow: 0 0 2px 2px $mainBlue;
   border: 1px solid $mainBlue;
+}
 
+.section {
+  padding-top: 50px;
 }
 
 .main {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  margin-top: 70px;
+  padding-top: 80px;
   .main-text {
     text-align: center;
     margin: 25px 0;
     width: 90%;
+    font-size: 1rem;
   }
   .main-img {
-    align-self: flex-end;
     width: 300px;
     height: 250px;
-    margin-right: -2px;
+    img {
+      height: 100%;
+    }
   }
   @include tablet-portrait {
     .main-img {
       width: 500px;
       height: 400px;
     }
+    .main-text {
+      font-size: 1.2rem;
+    }
   }
   @include tablet-landscape {
-    margin-top: 100px;
+    padding-top: 100px;
+    max-width: 900px;
     flex-direction: row;
     justify-content: flex-end;
+    margin: 0 auto;
+    gap: 30px;
     .main-text {
       text-align: left;
-      margin: 25px 20px 25px 100px;
-      width: 45%;
+      font-size: 1.2rem;
     }
     .main-img {
-      width: 500px;
-      height: 350px;
+      min-width: 600px;
+      height: 500px;
     }
   }
   @include laptop {
+    max-width: 1200px;
     .main-text {
-      font-size: 20px;
-      margin: 25px 20px 25px 100px;
-      width: 45%;
+      font-size: 1.5rem;
     }
     .main-img {
-      width: 700px;
+      min-width: 700px;
       height: 600px;
     }
     @include desktop {
-      .main-text {
-        font-size: 24px;
-      }
       .main-img {
         width: 800px;
         height: 700px;
@@ -542,7 +562,6 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
   .about-content {
     display: flex;
     flex-direction: column;
@@ -675,6 +694,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
   .gallery-content {
     display: grid;
     grid-template-columns: repeat(2, 40vw);
@@ -708,6 +728,39 @@ p {
     }
     .gallery-img {
       background-color: #3988ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid $mainBlue;
+      box-shadow: 0 0 8px $mainBlue;
+      .img-portrait {
+        width: 100%;
+      }
+      .img-landscape {
+        height: 100%;
+      }
+    }
+  }
+  .instagram-button {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 0 10px $mainBlue50;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: $mainBlue;
+    transition: background-color ease .3s;
+    &:hover {
+      background-color: #1d4e9a;
+    }
+    .instagramlink-icon {
+      width: 30px;
+      margin-right: 8px;
+      color: white;
     }
   }
 }
@@ -1100,10 +1153,62 @@ p {
   }
 }
 
+.accessories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  .accessories-content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: 25px 0;
+    @include tablet-portrait {
+      flex-direction: row-reverse;
+    }
+    .accessories-img {
+      width: 300px;
+      height: 300px;
+      @include laptop {
+        width: 400px;
+        height: 400px;
+      }
+      @include desktop {
+        width: 500px;
+        height: 500px;
+      }
+      img {
+        height: 100%;
+      }
+    }
+    .accessories-text {
+      text-align: justify;
+      width: 90%;
+      @include tablet-portrait {
+        display: block;
+        width: 50%;
+        margin: 0 0 0 30px;
+      }
+      @include laptop {
+        margin: 0 0 0 50px;
+        font-size: 18px;
+      }
+      @include desktop {
+        margin: 0 0 0 50px;
+        font-size: 22px;
+      }
+    }
+  }
+}
+
 .faq {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
   .faq-container {
     display: flex;
     flex-direction: column;
@@ -1207,6 +1312,57 @@ p {
 .contact {
   padding: 30px;
   background-color: #1d4e9a;
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    .contact-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto;
+      text-decoration: none;
+      color: white;
+      border: none;
+      padding: 8px;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: translateY(-5px);
+      }
+      .contactitem-icon {
+        height: 30px;
+        font-size: 30px;
+        margin-right: 8px;
+      }
+    }
+    @include tablet-landscape {
+      flex-direction: row;
+    }
+  }
+}
+
+.lang-changer {
+  position: fixed;
+  z-index: 10000000;
+  left: -2px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  .lang-link {
+    border: 1px solid #ccc;
+    text-transform: uppercase;
+    padding: 8px;
+    color: grey;
+    text-decoration: none;
+    background-color: rgba(204, 204, 204, 0.36);
+    margin: 1px 0;
+    &:hover {
+      color: white;
+    }
+  }
+  .active {
+    color: $mainBlue;
+    border-color: $mainBlue;
+  }
 }
 
 @keyframes slide-menu-right {
