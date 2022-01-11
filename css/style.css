@@ -138,7 +138,7 @@ p::selection {
   font-size: 12px;
   text-decoration: none;
   color: white;
-  padding: 20px;
+  padding: 12px;
 }
 .header .nav .nav-main > li .nav-main-link:hover::after {
   content: "";
