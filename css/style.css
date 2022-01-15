@@ -139,6 +139,7 @@ p::selection {
   text-decoration: none;
   color: white;
   padding: 12px;
+  white-space: nowrap;
 }
 .header .nav .nav-main > li .nav-main-link:hover::after {
   content: "";
@@ -342,7 +343,7 @@ p::selection {
     padding-left: 350px;
   }
   .header .nav .nav-main li .nav-main-link {
-    padding: 20px 35px;
+    padding: 20px 25px;
   }
   @keyframes link-hover {
     0% {
@@ -699,6 +700,7 @@ p::selection {
   border-radius: 10px;
   background-color: #3988ff;
   transition: background-color ease 0.3s;
+  margin-top: 20px;
 }
 .gallery .instagram-button:hover {
   background-color: #1d4e9a;
@@ -1332,7 +1334,7 @@ p::selection {
 }
 
 .contact {
-  padding: 30px;
+  padding: 30px 0;
   background-color: #1d4e9a;
 }
 .contact .contact-container {
