@@ -7,9 +7,9 @@
 ## ToDo
 
 - [x] uzupełniony HTML
-- [ ] przygotowane breakpointy
-- [ ] widok responsywny (mobile)
-- [ ] widok responsywny (tablet)
-- [ ] widok responsywny (pc)
-- [ ] animacje
-- [ ] skrypt tła, headera, hamburgera
+- [x] przygotowane breakpointy
+- [x] widok responsywny (mobile)
+- [x] widok responsywny (tablet)
+- [x] widok responsywny (pc)
+- [x] animacje
+- [x] skrypt tła, headera, hamburgera
